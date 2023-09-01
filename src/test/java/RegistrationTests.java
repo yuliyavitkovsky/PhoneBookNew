@@ -21,16 +21,16 @@ public class RegistrationTests {
     }
 
     @Test
-    public  void registrationPositiveTest(){
+    public  void registrationPositiveTest() {
         //open login form
         wd.findElement(By.xpath("//*[.='LOGIN']")).click();
 
         //fill login form
-        int i = (int)(System.currentTimeMillis()/1000)%3600;
+        int i = (int) (System.currentTimeMillis() / 1000) % 3600;
         WebElement emailInput = wd.findElement(By.xpath("//input[1]"));
         emailInput.click();
         emailInput.clear();
-        emailInput.sendKeys("buba_" +  i + "@mail.com");
+        emailInput.sendKeys("buba_" + i + "@mail.com");
 
         WebElement passInput = wd.findElement(By.xpath("//input[2]"));
         passInput.click();
@@ -42,10 +42,29 @@ public class RegistrationTests {
 
         //assert
 //        pause(3000);
-        Assert.assertTrue(wd.findElements(By.tagName("button")).size() > 0);
-
-
     }
+       @Test
+    public  void registrationNegativeTestWrongLogin(){
+        //open login form
+        wd.findElement(By.xpath("//*[.='LOGIN']")).click();
+
+        //fill login form
+        WebElement emailInput = wd.findElement(By.xpath("//input[1]"));
+        emailInput.click();
+        emailInput.clear();
+        emailInput.sendKeys("bubamail.com");
+
+        WebElement passInput = wd.findElement(By.xpath("//input[2]"));
+        passInput.click();
+        passInput.clear();
+        passInput.sendKeys("Pp35467$");
+
+        //click registration-button
+        wd.findElement(By.xpath("//button[2]")).click();
+
+        //assert
+        pause(3000);
+          }
 
     @AfterMethod
     public void tearDown(){

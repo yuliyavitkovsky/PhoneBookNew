@@ -63,8 +63,26 @@ public class LoginTests {
 
         //assert
         pause(3000);
+    }    @Test
+    public  void loginNegativeTestWrongPassword(){
+        //open login form
+        wd.findElement(By.xpath("//*[.='LOGIN']")).click();
 
+        //fill login form
+        WebElement emailInput = wd.findElement(By.xpath("//input[1]"));
+        emailInput.click();
+        emailInput.clear();
+        emailInput.sendKeys("buba@mail.com");
+        WebElement passInput = wd.findElement(By.xpath("//input[2]"));
+        passInput.click();
+        passInput.clear();
+        passInput.sendKeys("Pp35467");
 
+        //click login-button
+        wd.findElement(By.xpath("//button[1]")).click();
+
+        //assert
+        pause(3000);
     }
 
 
