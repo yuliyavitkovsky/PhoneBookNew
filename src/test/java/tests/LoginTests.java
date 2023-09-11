@@ -1,5 +1,6 @@
 package tests;
 
+import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -32,7 +33,7 @@ public class LoginTests extends TestBase{
 //        passInput.click();
 //        passInput.clear();
 //        passInput.sendKeys("Pp35467$");
-        app.getHelperUser().fillLoginRegistrationForm("buba@mail.com", "Pp35467$");
+        app.getHelperUser().fillLoginRegistrationForm(new User("buba@mail.com", "Pp35467$"));
 
         //click login-button
 //        wd.findElement(By.xpath("//button[1]")).click();
@@ -45,30 +46,37 @@ public class LoginTests extends TestBase{
     }
     @Test
     public  void loginNegativeTestWrongEmail(){
-        //open login form
-     //   wd.findElement(By.xpath("//*[.='LOGIN']")).click();
         app.getHelperUser().openLoginRegistrationForm();
-
-        //fill login form
-//        WebElement emailInput = wd.findElement(By.xpath("//input[1]"));
-//        emailInput.click();
-//        emailInput.clear();
-//        emailInput.sendKeys("bubamail.com");
-//        WebElement passInput = wd.findElement(By.xpath("//input[2]"));
-//        passInput.click();
-//        passInput.clear();
-//        passInput.sendKeys("Pp35467$");
-        app.getHelperUser().fillLoginRegistrationForm("bubamail.com", "Pp35467$");
-
-        //click login-button
-     //   wd.findElement(By.xpath("//button[1]")).click();
+        app.getHelperUser().fillLoginRegistrationForm(new User("buba@mail.com", "Pp35467$"));
         app.getHelperUser().submitLogin();
-
-        //assert
-      //  pause(3000);
-        app.getHelperUser().pause(3000);
         Assert.assertTrue(app.getHelperUser().isAlertPresent());
     }
+//    @Test
+//    public  void loginNegativeTestWrongEmail(){
+//        //open login form
+//     //   wd.findElement(By.xpath("//*[.='LOGIN']")).click();
+//        app.getHelperUser().openLoginRegistrationForm();
+//
+//        //fill login form
+////        WebElement emailInput = wd.findElement(By.xpath("//input[1]"));
+////        emailInput.click();
+////        emailInput.clear();
+////        emailInput.sendKeys("bubamail.com");
+////        WebElement passInput = wd.findElement(By.xpath("//input[2]"));
+////        passInput.click();
+////        passInput.clear();
+////        passInput.sendKeys("Pp35467$");
+//        app.getHelperUser().fillLoginRegistrationForm("bubamail.com", "Pp35467$");
+//
+//        //click login-button
+//     //   wd.findElement(By.xpath("//button[1]")).click();
+//        app.getHelperUser().submitLogin();
+//
+//        //assert
+//      //  pause(3000);
+//        app.getHelperUser().pause(3000);
+//        Assert.assertTrue(app.getHelperUser().isAlertPresent());
+//    }
     @Test
     public  void loginNegativeTestWrongPassword(){
         //open login form
@@ -85,7 +93,7 @@ public class LoginTests extends TestBase{
 //        passInput.click();
 //        passInput.clear();
 //        passInput.sendKeys("Pp35467");
-        app.getHelperUser().fillLoginRegistrationForm("buba@mail.com", "Pp35467");
+        app.getHelperUser().fillLoginRegistrationForm(new User("buba@mail.com", "Pp35467$"));
 
         //click login-button
       //  wd.findElement(By.xpath("//button[1]")).click();
