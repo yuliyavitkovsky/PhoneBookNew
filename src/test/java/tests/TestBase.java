@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -22,7 +23,9 @@ import java.util.concurrent.TimeUnit;
 
 public class TestBase {
   //  WebDriver wd;
-   static ApplicationManager app = new ApplicationManager();
+   static ApplicationManager app = new ApplicationManager(
+           System.getProperty("browser", BrowserType.CHROME)
+  );
 
    Logger logger = LoggerFactory.getLogger(TestBase.class);
 
