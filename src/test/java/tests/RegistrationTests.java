@@ -9,10 +9,10 @@ import org.testng.annotations.Test;
 
 public class RegistrationTests extends TestBase {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void precondition(){
         if(app.getHelperUser().isLogged()) app.getHelperUser().logOut();}
-    @Test
+    @Test(groups = {"positive"})
    public void registrationPositiveTest() {
         int i = (int) (System.currentTimeMillis() / 1000) % 3600;
         User user = new User(
@@ -27,7 +27,7 @@ public class RegistrationTests extends TestBase {
         app.getHelperUser().logOut();
     }
 
-    @Test
+    @Test(groups = {"negative"})
     public void registrationNegativeTestWrongEmail() {
         int i = (int) (System.currentTimeMillis() / 1000) % 3600;
         User user = User.builder()
@@ -41,7 +41,7 @@ public class RegistrationTests extends TestBase {
         logger.info("registrationNegativeTestWrongEmail starts with: "+ user.getEmail()+ " & " + user.getPassword());
         Assert.assertTrue(app.getHelperUser().isAlertPresent());
     }
-    @Test
+    @Test(groups = {"negative"})
     public void registrationNegativeTestWrongPassword() {
         int i = (int) (System.currentTimeMillis() / 1000) % 3600;
         User user = User.builder()

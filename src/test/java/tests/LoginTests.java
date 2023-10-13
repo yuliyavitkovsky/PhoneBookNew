@@ -2,6 +2,7 @@ package tests;
 
 
 import manager.NGListener;
+import manager.ProviderData;
 import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -21,11 +22,11 @@ public class LoginTests extends TestBase{
 //        wd.navigate().to("https://telranedu.web.app/home");
 //        wd.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 //    }
-@BeforeMethod
+@BeforeMethod(alwaysRun = true)
 public void precondition(){
     if(app.getHelperUser().isLogged()) app.getHelperUser().logOut();
 }
-    @Test
+    @Test(groups = {"positive"})
     public  void loginPositiveTest(){
         int i = (int) (System.currentTimeMillis() / 1000) % 3600;
         User user = new User(
@@ -39,7 +40,7 @@ public void precondition(){
         Assert.assertTrue(app.getHelperUser().isElementPresent(By.tagName("button")));
     //    app.getHelperUser().logOut();
     }
-    @Test
+    @Test(groups = {"positive"})
     public void loginPositiveTestModel(){
 
         User user = User.builder()
@@ -54,7 +55,18 @@ public void precondition(){
         Assert.assertTrue(app.getHelperUser().isElementPresent(By.tagName("button")));
      //   app.getHelperUser().logOut();
     }
-    @Test
+    @Test(groups = {"positive"}, dataProvider = "userDTO", dataProviderClass = ProviderData.class)
+    public void loginPositiveUserDTO(User user){
+
+        app.getHelperUser().openLoginRegistrationForm();
+        app.getHelperUser().fillLoginRegistrationForm(new User(user.getEmail(), user.getPassword()));
+        app.getHelperUser().submitLogin();
+        app.getHelperUser().pause(5000);
+        logger.info("loginPositiveTestModel starts with: "+ user.getEmail()+ " & " + user.getPassword());
+        Assert.assertTrue(app.getHelperUser().isElementPresent(By.tagName("button")));
+        //   app.getHelperUser().logOut();
+    }
+    @Test(groups = {"negative", "smoke"})
     public  void loginNegativeTestWrongEmail(){
 
         User user = User.builder()
@@ -68,7 +80,7 @@ public void precondition(){
         Assert.assertTrue(app.getHelperUser().isAlertPresent());
     }
 
-    @Test
+    @Test(groups = {"negative"})
     public  void loginNegativeTestWrongPassword(){
         User user = User.builder()
                 .email("buba@mail.com")
