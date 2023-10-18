@@ -24,7 +24,7 @@ public class LoginTests extends TestBase{
 //    }
 @BeforeMethod(alwaysRun = true)
 public void precondition(){
-    if(app.getHelperUser().isLogged()) app.getHelperUser().logOut();
+    if(app.getHelperUser().isLogged()) app.getHelperUser().logout();
 }
     @Test(groups = {"positive"})
     public  void loginPositiveTest(){
@@ -38,7 +38,7 @@ public void precondition(){
         app.getHelperUser().pause(5000);
         logger.info("loginPositiveTest starts with: "+ user.getEmail()+ " & " + user.getPassword());
         Assert.assertTrue(app.getHelperUser().isElementPresent(By.tagName("button")));
-    //    app.getHelperUser().logOut();
+    //    app.getHelperUser().logout();
     }
     @Test(groups = {"positive"})
     public void loginPositiveTestModel(){
@@ -53,7 +53,18 @@ public void precondition(){
         app.getHelperUser().pause(5000);
         logger.info("loginPositiveTestModel starts with: "+ user.getEmail()+ " & " + user.getPassword());
         Assert.assertTrue(app.getHelperUser().isElementPresent(By.tagName("button")));
-     //   app.getHelperUser().logOut();
+     //   app.getHelperUser().logout();
+    }
+    @Test(groups = {"positive"})
+    public void loginPositiveTestProps(){
+
+        app.getHelperUser().openLoginRegistrationForm();
+        app.getHelperUser().fillLoginRegistrationForm(app.getEmail(), app.getPassword());
+        app.getHelperUser().submitLogin();
+        app.getHelperUser().pause(5000);
+        logger.info("loginPositiveTestModel starts with: "+ app.getEmail()+ " & " + app.getPassword());
+        Assert.assertTrue(app.getHelperUser().isElementPresent(By.tagName("button")));
+     //   app.getHelperUser().logout();
     }
     @Test(groups = {"positive"}, dataProvider = "userDTO", dataProviderClass = ProviderData.class)
     public void loginPositiveUserDTO(User user){
@@ -64,7 +75,7 @@ public void precondition(){
         app.getHelperUser().pause(5000);
         logger.info("loginPositiveTestModel starts with: "+ user.getEmail()+ " & " + user.getPassword());
         Assert.assertTrue(app.getHelperUser().isElementPresent(By.tagName("button")));
-        //   app.getHelperUser().logOut();
+        //   app.getHelperUser().logout();
     }
     @Test(groups = {"negative", "smoke"})
     public  void loginNegativeTestWrongEmail(){
