@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tests.LoginTests" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-10-18T17:40:04" hostname="DESKTOP-V4G640E" time="50.887">
+  <properties/>
+  <testcase name="loginNegativeTestWrongEmail" classname="tests.LoginTests" time="2.372"/>
+  <testcase name="loginNegativeTestWrongPassword" classname="tests.LoginTests" time="4.21"/>
+  <testcase name="loginPositiveTest" classname="tests.LoginTests" time="6.189"/>
+  <testcase name="loginPositiveTestModel" classname="tests.LoginTests" time="6.116"/>
+  <testcase name="loginPositiveTestProps" classname="tests.LoginTests" time="6.135"/>
+  <testcase name="loginPositiveUserDTO[0](User(email=buba@mail.com, password=Pp35467$))" classname="tests.LoginTests" time="6.196"/>
+  <testcase name="loginPositiveUserDTO[1](User(email=buba@mail.com, password=Pp35467$))" classname="tests.LoginTests" time="6.131"/>
+  <testcase name="loginPositiveUserDTO[2](User(email=buba@mail.com, password=Pp35467$))" classname="tests.LoginTests" time="6.112"/>
+  <system-out><![CDATA[Wrong email or password
+Wrong email or password
+]]></system-out>
+  <system-err><![CDATA[console.warn: LoginRecipes: "Falling back to a synchronous message for: https://telranedu.web.app."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://telranedu.web.app."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://telranedu.web.app."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://telranedu.web.app."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://telranedu.web.app."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://telranedu.web.app."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://telranedu.web.app."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://telranedu.web.app."
+]]></system-err>
+</testsuite>

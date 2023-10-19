@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tests.AddNewContactTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-10-18T17:40:55" hostname="DESKTOP-V4G640E" time="14.018">
+  <properties/>
+  <testcase name="AddNewContactPositive" classname="tests.AddNewContactTests" time="3.094"/>
+  <testcase name="AddNewContactPositive" classname="tests.AddNewContactTests" time="2.696"/>
+  <testcase name="AddNewContactPositiveContactDTO[0](Contact(name=Jack, lastName=Rain, phone=00258522460, email=buba2460@mail.com, address=Tel-Aviv, description=friend))" classname="tests.AddNewContactTests" time="2.762"/>
+  <testcase name="AddNewContactPositiveContactDTO[1](Contact(name=Jack, lastName=Rain, phone=00258522460, email=buba2460@mail.com, address=Tel-Aviv, description=friend))" classname="tests.AddNewContactTests" time="2.727"/>
+  <testcase name="AddNewContactPositiveContactDTO[2](Contact(name=Jack, lastName=Rain, phone=00258522460, email=buba2460@mail.com, address=Tel-Aviv, description=friend))" classname="tests.AddNewContactTests" time="2.659"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
